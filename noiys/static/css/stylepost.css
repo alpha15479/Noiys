@@ -1,0 +1,191 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ffffff;
+    font-family: 'Nunito', sans-serif;
+}
+
+header {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    background: #ff4584;
+    height: 150px;
+    width: inherit;
+    display: grid;
+    grid-template-columns: 3fr 2fr 0.4fr;
+    grid-template-areas: 'logo menu profileIcon';
+}
+
+.logo {
+    grid-area: logo;
+    font-size: 60px;
+    font-weight: bold;
+    color: #fff;
+    width: 350px;
+    padding-left: 20px;
+}
+
+.menu {
+    grid-area: menu;
+    font-size: 25px;
+    padding-top: 30px;
+    padding-left: 20px;
+    text-align: end;
+    font-weight: bold;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    padding-right: 40px;
+    font-size: 25px;
+}
+
+.menu a:hover {
+    color: #333031;
+}
+
+.profileIcon {
+    grid-area: profileIcon;
+    text-align: center;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.profileIcon a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #fff;
+}
+
+.profileIcon a:hover {
+    color: #333031;
+}
+
+.profileIcon a img {
+    border-radius: 50%;
+    border: 2px solid #000;
+    width: 50px;
+    height: 50px;
+}
+
+.grid {
+    max-width: 100%;
+    display: grid;
+    grid-template-rows: 150px minmax(520px, auto);
+    grid-template-areas: 'header-left' 'main';
+}
+
+.header-left {
+    grid-area: header-left;
+    max-width: 450px;
+}
+
+.main {
+    grid-area: main;
+    height: auto;
+    max-width: 100%;
+}
+
+.content {
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.topic input {
+    height: 80px;
+    background-color: #F2F2F2;
+    box-sizing: border-box;
+    border: 3px solid gray;
+    border-radius: 10px;
+    padding: 50px;
+    font-size: 20px;
+    outline: none;
+    margin-left: 14%;
+}
+
+.main-content {
+    background-color: #F2F2F2;
+    box-sizing: border-box;
+    border-radius: 10px;
+    min-height: 450px;
+    max-width: 72.91666666666667%;
+    margin-bottom: 20px;
+}
+
+.textarea {
+    width: 70%;
+    min-height: 300px;
+    margin-top: 1%;
+    outline: none;
+    resize: none;
+    border: 3px solid gray;
+    border-radius: 10px;
+    padding: 6px 12px;
+    font-size: 14px;
+    color: #555;
+    font-size: 20px;
+    line-height: 1.428571429;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 8%);
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.buttonpost {
+    min-height: 100px;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: max(3fr) 1fr 1fr;
+    grid-template-areas: 'text statuspost button';
+}
+
+.text {
+    margin-top: 15px;
+    margin-left: 20%;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.statuspost {
+    margin-top: 0px;
+    margin-left: 50px;
+}
+
+.mode {
+    margin-left: 5px;
+    font-size: 20px;
+}
+
+.statuspost span {
+    margin-left: 5px;
+}
+
+.button {
+    margin-top: 20px;
+    padding-left: 55%;
+}
+
+button {
+    width: 120px;
+    height: 50px;
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #f53677;
+    border-radius: 10px;
+    border: 2px solid #000;
+}
+
+button:hover {
+    background-color: #fa9dbc;
+}
+
+@media screen and (max-width:748px) {
+    .textarea {
+        width: 150px;
+    }
+}

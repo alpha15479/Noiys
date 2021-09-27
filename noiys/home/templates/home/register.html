@@ -1,0 +1,37 @@
+<!DOCTYPE html> {% load static %}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylereg.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body>
+    <section>
+        <div class="contentBx">
+            <div class="formBx">
+                <h2>Sign up!!</h2>
+                <form method="POST">
+                    <div class="inputBx">
+                        {% csrf_token %} {{ form.as_p }}
+                    </div>
+                    <div class="inputBx">
+                        <input class="button" type="submit" value="Register" style="cursor: pointer; margin-top:20px;">
+                    </div>
+                    <div class="inputBx">
+                        <p>Already have an account?<a href="{% url 'login' %}">Login</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="imgBx">
+            <img src="https://images.pexels.com/photos/4620878/pexels-photo-4620878.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Image">
+        </div>
+    </section>
+</body>
+
+</html>

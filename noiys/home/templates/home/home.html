@@ -1,0 +1,76 @@
+<!DOCTYPE html>{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>homepage</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylehome.css' %}">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h2>NOIYS</h2>
+        </div>
+        <div class="menu">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'home' %}">About</a> {% if request.user.is_authenticated %}
+            <a href="{% url 'logout' %}">Log out</a> {% else %}
+            <a href="{% url 'login' %}">Log in</a> {% endif %}
+        </div>
+        <div class="profileIcon" style="margin-right: 50px;">
+            <a href="profile.html">
+                <img src="https://scontent.fbkk10-1.fna.fbcdn.net/v/t1.6435-9/219267358_3088269761393869_6177724383668765642_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=09cbfe&_nc_ohc=scqOyzX44-kAX92AEz5&_nc_ht=scontent.fbkk10-1.fna&oh=ecd3645c910d395c35c9c206a7f1d9ee&oe=6149AB68"
+                    alt="Img">
+            </a>
+            <br>
+            <h3 style="color: #fff">Hello {{request.user|title}}</h3>
+        </div>
+    </header>
+    <div class="grid">
+        <div class="content-left">
+            <h2>Recent post</h2>
+            <div class="post">
+                <div class="post-left">
+                    <hr> {% for post in qs %}
+                    <strong style="font-size: 16px;">{{post.title}}</strong>
+                    <p style="font-size: 16px;">{{post.description|truncatechars:120}}Read more</p>
+                    <p style="font-size: 16px;">{{post.user}}</p>
+                    <!--<p><strong>{{blog.created}}</strong></p>-->
+                    <hr> {% endfor %}
+                </div>
+                <div class="post-right">
+                    <span>
+                        <a href="#">Comment</a>
+                    </span> <br>
+                    <span>
+                        <a href="#">Follow</a>
+                    </span>
+                    <span>
+                        <a href="#">
+                            <img src="https://images.pexels.com/photos/3027243/pexels-photo-3027243.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="iconUser">
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="content-right">
+            <span>
+                <img src="https://image.flaticon.com/icons/png/512/2567/2567208.png" alt="icon">
+            </span>
+            <span>
+                <p style="font-size: 18px;">Create your topic or article</p>
+            </span>
+            <span>
+                <a id="add-link" href="{% url 'task-create' %}">
+                   <button>Create Post</button> 
+                </a>
+            </span>
+        </div>
+    </div>
+</body>
+
+</html>

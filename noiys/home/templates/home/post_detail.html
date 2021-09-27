@@ -1,0 +1,126 @@
+<!DOCTYPE html>{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOIYS details - Post, Read, Like</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/post_detail.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+
+    <style>
+        .content-left {
+            height: 80vh;
+            overflow: auto;
+        }
+        
+        .content-right {
+            height: 80vh;
+        }
+        
+        .grid .content-right .col-md-12 form .bodypost input:hover {
+            background-color: #fa9dbc;
+        }
+        
+        @media screen and (max-width: 748px) {
+            header {
+                grid-template-columns: 30% 40% 30%;
+                grid-template-areas: 'logo menu profileIcon';
+                background: #ff4584;
+                width: 100%;
+            }
+            header .logo {
+                grid-area: logo;
+            }
+            header .menu {
+                grid-area: menu;
+            }
+            header .profileIcon {
+                grid-area: profileIcon;
+                background: #ff4584;
+            }
+            .grid .content-left .post {
+                width: 60%;
+            }
+            .grid .content-left .post .post-left {
+                height: fit-content;
+            }
+            .grid .content-right .col-md-12 form .bodypost textarea {
+                width: 70%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1 style="font-size:50px"><strong>NOIYS</strong></h1>
+        </div>
+        <div class="menu">
+            <a href="{% url 'post_list' %}">Home</a>
+            <a href="{% url 'about' %}">About</a> {% if request.user.is_authenticated %}
+            <a href="{% url 'logout' %}">Logout</a> {% else %}
+            <a href="{% url 'login' %}">Log in</a> {% endif %}
+        </div>
+        <div class="profileIcon" style="margin-right: 50px;">
+            <a href="{% url 'tasks' %}">
+                <img src="https://cdn-icons-png.flaticon.com/128/149/149071.png" alt="Img">
+            </a>
+            <br>
+            <h4 style="color: #fff"><strong><a href="{% url 'tasks' %}">Hello {{request.user|title}}</a></strong></h4>
+        </div>
+    </header>
+
+    <div class="grid">
+        <div class="content-left">
+            <div class="post">
+                <h3> <strong>{{task.title}} </strong></h3><br>
+                <h4> {{task.description}} </h4><br>
+                <h6><strong>Created at {{task.created_at}} </strong></h6>
+                <h6><strong> By {{task.user}}</strong> </h6><br>
+
+                <form action="{% url 'like_post' task.id %}" method="POST">
+                    {% csrf_token %} {% if user.is_authenticated %} {% if liked %}
+                    <button type="submit" name="task_id" value="{{ task.id }}" class="btn btn-danger">Unlike</button> {% else %}
+                    <button type="submit" name="task_id" value="{{ task.id }}" class="btn btn-primary">Like</button> {% endif %} {% else %}
+                    <strong><a href="{% url 'login' %}">Login to like</a></strong>{% endif %}<strong>- {{ total_likes }} Likes</strong>
+                </form>
+
+            </div>
+            <div class="post">
+                {% with task.comments.count as total_comments %}
+                <h3><strong>
+                    {{ total_comments }} comment{{ total_comments|pluralize}}
+                </strong></h3><br> {% endwith %} {% if not task.comments.all %} No comments yet...<a href="#"><strong>Add one</strong></a> {% else %} {% for comment in task.comments.all %}
+                <h5><strong>{{ comment.content }}</strong></h5>
+                <h6 style="text-align:left"><strong>{{ comment.name }} - {{ comment.publish }} </strong></h6><br> {% endfor %} {% endif %}
+            </div>
+        </div>
+        <div class="content-right">
+            <div class="col-md-12" style="margin-top:20%;">
+                <h2>Make a new comment</h2><br><br>
+                <form method="POST">
+                    {% csrf_token %}{% if user.is_authenticated %}
+                    <div class="bodypost" align="center">
+                        <textarea class="textarea" name="content" cols="50" rows="10" id="id_content" placeholder="Make some comment..." style="line-height: 1.5;
+                        border-radius: 5px;
+                        border: 1px solid #ccc;
+                        padding:15px;
+                        box-shadow: 1px 1px 1px #999;
+                        letter-spacing: 1px;"></textarea>
+                    </div><br>
+                    <input type="submit" value="Submit" class="btn btn-primary" style="background-color:#f53677; border-radius: 20px; width:100px;
+                    "> {% else %}<strong><a href="{% url 'login' %}">Login to comment</a></strong>{% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        $('#myForm').trigger("reset");
+    </script>
+</body>
+
+</html>

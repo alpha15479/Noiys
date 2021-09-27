@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    background: #ff4584;
+    min-height: 150px;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: 3fr 2fr 0.4fr;
+    grid-template-areas: 'logo menu profileIcon';
+}
+
+.logo {
+    grid-area: logo;
+    font-size: 60px;
+    color: #fff;
+    max-width: 350px;
+    padding-left: 20px;
+}
+
+.menu {
+    grid-area: menu;
+    font-size: 30px;
+    padding-top: 30px;
+    padding-left: 20px;
+    text-align: end;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    padding-right: 40px;
+}
+
+.menu a:hover {
+    color: #607d8b;
+}
+
+.profileIcon {
+    grid-area: profileIcon;
+    text-align: center;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.profileIcon a {
+    text-decoration: none;
+    font-size: 30px;
+    color: #fff;
+}
+
+.profileIcon a img {
+    border-radius: 50%;
+    border: 2px solid #000;
+    width: 50px;
+    height: 50px;
+}
+
+.grid {
+    max-width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-areas: 'content-left content-right';
+}
+
+.content-left {
+    grid-area: content-left;
+    margin-bottom: 20px;
+    height: auto;
+    max-width: 1120px;
+}
+
+.content-right {
+    grid-area: content-right;
+    margin-bottom: 20px;
+    background-color: #f7f4f4;
+}
+
+.content-left .post-body {
+    max-width: 650px;
+    min-height: 350px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 18px;
+    background-color: #f7f4f4;
+}
+
+.content-left h2 {
+    margin-top: 30px;
+    margin-left: 80px;
+}
+
+.content-left .post-body p {
+    margin: 15px;
+    text-align: left;
+}
+
+.content-right h2 {
+    margin-top: 30px;
+    margin-left: 80px;
+}
+
+.content-right .commentBx {
+    margin: 30px;
+    min-height: 358px;
+}
+
+.content-right .commentBx p {
+    margin-bottom: 20px;
+}
+
+.content-right .writeBx {
+    margin-right: 20px;
+}
+
+.content-right .writeBx input[type="text"] {
+    max-width: 350px;
+    height: 35px;
+    outline: none;
+    border: 1px solid #607d8b;
+    background: transparent;
+    border-radius: 30px;
+    font-size: 16px;
+    padding: 5px;
+}
+
+.content-right .writeBx input[type="submit"] {
+    max-width: 150px;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #ff4584;
+    color: #fff;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.content-right .writeBx input[type="submit"]:hover {
+    background-color: #f53677;
+}

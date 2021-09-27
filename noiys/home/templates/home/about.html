@@ -1,0 +1,126 @@
+<!DOCTYPE html>{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOIYS team - Post, Read, Like</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1 style="font-size:50px"><strong>NOIYS</strong></h1>
+        </div>
+        <div class="menu">
+            <a href="{% url 'post_list' %}">Home</a>
+            <a href="{% url 'about' %}">About</a> {% if request.user.is_authenticated %}
+            <a href="{% url 'logout' %}">Logout</a> {% else %}
+            <a href="{% url 'login' %}">Login</a> {% endif %}
+        </div>
+        <div class="profileIcon" style="margin-right: 50px;">
+            <a href="{% url 'tasks' %}">
+                <img src="https://cdn-icons-png.flaticon.com/128/149/149071.png" alt="Img">
+            </a>
+            <br>
+            <h4 style="color: #fff"><strong><a href="{% url 'tasks' %}">Hello {{request.user|title}}</a></strong></h4>
+        </div>
+    </header>
+    <div class="grid">
+        <div class="personBx">
+            <h1>MEET OUR TEAM</h1>
+            <div class="person">
+                <img src="https://scontent.fbkk10-1.fna.fbcdn.net/v/t1.15752-9/242540352_826411731382212_4825837964191485014_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=ae9488&_nc_ohc=N_2ALvMZ2fYAX9lWZAM&_nc_ht=scontent.fbkk10-1.fna&oh=71e3a85ae1482e42f690f6ac661c3c88&oe=616E2F2D"
+                    alt="IMG">
+                <h2>Wichuda</h2>
+                <h3>DEVELOPER</h3>
+            </div>
+            <div class="person">
+                <img src="https://scontent.fbkk10-1.fna.fbcdn.net/v/t1.15752-9/241380272_381648773413688_4069646467976654801_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=ae9488&_nc_ohc=66rehuOUilkAX9B7hZ2&_nc_ht=scontent.fbkk10-1.fna&oh=caf62c879e7f9ad666a0e9b7b4840c40&oe=616D51B9"
+                    alt="IMG">
+                <h2>Bancha</h2>
+                <h3>DEVELOPER</h3>
+            </div>
+            <div class="person">
+                <img src="https://scontent.fbkk10-1.fna.fbcdn.net/v/t1.15752-9/242426350_177208897885658_2796548738772414939_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=ae9488&_nc_ohc=xP-XPBNkUTsAX9ujbCB&_nc_ht=scontent.fbkk10-1.fna&oh=d3b536db447d71e7a9c55ddc54e4e573&oe=616F75A6"
+                    alt="IMG">
+                <h2>Nipapan</h2>
+                <h3>UX/UI DESIGN</h3>
+            </div>
+            <div class="person">
+                <img src="https://scontent.fbkk10-1.fna.fbcdn.net/v/t1.15752-9/242624148_873482643299063_5128308457210845258_n.jpg?_nc_cat=101&ccb=1-5&_nc_sid=ae9488&_nc_ohc=3X3b5TOzCAwAX8tO4GW&_nc_ht=scontent.fbkk10-1.fna&oh=ecb330610caa06ebf266cf5a377b8675&oe=616D538D"
+                    alt="IMG">
+                <h2>Surasak</h2>
+                <h3>DATABASE DESIGN</h3>
+            </div>
+            <div class="person">
+                <img src="https://scontent.fubp1-1.fna.fbcdn.net/v/t1.6435-1/p320x320/219267358_3088269761393869_6177724383668765642_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=7206a8&_nc_eui2=AeFIvTjmUDAdDy3tZVFHhO5bX2LsBOwXU8NfYuwE7BdTwxgP7N2nDIEeAxvAMF8cg1grx5_KhEgxf6RgJenMStfS&_nc_ohc=fBYhaoYBEdsAX9uYIEQ&_nc_ht=scontent.fubp1-1.fna&oh=1215295d203493f4dfe2ef858c049c57&oe=617135BD"
+                    alt="IMG">
+                <h2>Sirinya</h2>
+                <h3>TESTER</h3>
+            </div>
+        </div>
+        <section>
+            <div class="left-bar">
+                <h1>About Noiys</h1>
+                <p>Our website is a software engineering subject project. which our website is about posting messages It will automatically disappear after 24 hours. You can also turn on incognito mode on your post if you don't want others to know that this
+                    post is yours. We got the idea and model from <a href="http://www.noiys.com/">NOIYS</a> website.</p>
+
+            </div>
+            <div class="right-bar">
+                <h1>Contact</h1>
+                <div class="emailBx">
+                    <div class="icon-email">
+                        <p>
+                            <img src="https://cdn-icons-png.flaticon.com/512/482/482138.png" alt="">
+                        </p>
+                    </div>
+                    <div class="mail">
+                        <span>wichuda.ph.62@ubu.ac.th</span><br>
+                        <span>bancha.pa.62@ubu.ac.th</span><br>
+                        <span>nipapan.ja.62@ubu.ac.th</span><br>
+                        <span>surasak.na.62@ubu.ac.th</span><br>
+                        <span>sirinya.ba.62@ubu.ac.th</span>
+                    </div>
+                </div>
+                <div class="addressBx">
+                    <div class="icon-address">
+                        <a href="https://goo.gl/maps/oWVd4ZrkCi7xCKNy8">
+                            <p>
+                                <img src="https://img-premium.flaticon.com/png/512/819/premium/819865.png?token=exp=1632218467~hmac=dcb35b7c2a7576bcf4ec4e91c5322cf6" alt="">
+                            </p>
+                        </a>
+                    </div>
+                    <div class="location">
+                        <a href="https://img-premium.flaticon.com/png/512/819/premium/819865.png?token=exp=1632582523~hmac=1944c56c98e7513003721203e84fd8fc">
+                            <p>Ubon Ratchathani University</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="icon-social">
+                    <ul class="sci">
+                        <li>
+                            <img src="https://image.flaticon.com/icons/png/512/733/733614.png" alt="">
+                        </li>
+                        <li>
+                            <img src="https://image.flaticon.com/icons/png/512/466/466963.png" alt="">
+                        </li>
+                        <li>
+                            <img src="https://image.flaticon.com/icons/png/512/466/466947.png" alt="">
+                        </li>
+                        <li>
+                            <img src="https://cdn-icons-png.flaticon.com/512/466/466956.png" alt="">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,298 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ffffff;
+    font-family: 'Nunito', sans-serif;
+}
+
+header {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    background: #ff4584;
+    height: 150px;
+    width: inherit;
+    display: grid;
+    grid-template-columns: 3fr 2fr 0.4fr;
+    grid-template-areas: 'logo menu profileIcon';
+}
+
+.logo {
+    grid-area: logo;
+    font-size: 60px;
+    font-weight: bold;
+    color: #fff;
+    width: 350px;
+    padding-left: 20px;
+}
+
+.menu {
+    grid-area: menu;
+    font-size: 25px;
+    padding-top: 30px;
+    padding-left: 20px;
+    text-align: end;
+    font-weight: bold;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    padding-right: 40px;
+    font-size: 25px;
+}
+
+.menu a:hover {
+    color: #333031;
+}
+
+.profileIcon {
+    grid-area: profileIcon;
+    text-align: center;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.profileIcon a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #fff;
+}
+
+.profileIcon a:hover {
+    color: #333031;
+}
+
+.profileIcon a img {
+    border-radius: 50%;
+    border: 2px solid #000;
+    width: 50px;
+    height: 50px;
+}
+
+.grid {
+    text-align: center;
+    color: #607d8b;
+    max-width: 100%;
+}
+
+.grid .personBx {
+    margin-top: 20px;
+    align-items: center;
+    color: #607d8b;
+}
+
+.grid .personBx h1 {
+    font-size: 72px;
+}
+
+.grid .personBx h2 {
+    font-size: 36px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.grid .personBx h3 {
+    letter-spacing: 1px;
+}
+
+.grid .person {
+    float: left;
+    margin-left: 120px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.grid .person img {
+    max-height: 10rem;
+    border-radius: 50%;
+}
+
+section {
+    position: relative;
+    width: 100%;
+    display: flex;
+}
+
+.contactBx {
+    float: none;
+    margin-left: 50px;
+}
+
+section .left-bar {
+    width: 50%;
+    text-align: left;
+    background-color: rgba(250, 235, 215, 0.267);
+    padding-left: 150px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+section .left-bar h1 {
+    margin-bottom: 20px;
+}
+
+section .left-bar p {
+    padding-left: 25px;
+    max-width: 450px;
+}
+
+section .left-bar p a {
+    text-decoration: none;
+    color: #607d8b;
+}
+
+section .left-bar p a:hover {
+    color: #ff4584;
+}
+
+section .right-bar {
+    width: 50%;
+    text-align: left;
+    min-height: 350px;
+    background-color: rgba(222, 184, 135, 0.171);
+    padding-left: 30px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+section .right-bar h1 {
+    margin-bottom: 20px;
+}
+
+section .right-bar .emailBx {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+section .right-bar .icon-email {
+    text-align: center;
+    float: left;
+    width: 80px;
+    height: 120px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+section .right-bar .icon-email p {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #607d8b;
+    border-radius: 50%;
+    margin: 0 7px;
+    cursor: pointer;
+}
+
+section .right-bar .icon-email p img {
+    width: 100%;
+    height: 100%;
+    transform: scale(0.5);
+    filter: invert(1);
+}
+
+section .right-bar .mail {
+    min-height: 120px;
+}
+
+section .right-bar .mail span {
+    padding-top: 20px;
+    letter-spacing: 1px;
+    line-height: 1.5;
+}
+
+section .right-bar .addressBx {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    min-height: 80px;
+}
+
+section .right-bar .icon-address {
+    float: left;
+    text-align: center;
+    width: 80px;
+    min-height: 80px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+section .right-bar .icon-address p {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #607d8b;
+    border-radius: 50%;
+    margin: 0 7px;
+    cursor: pointer;
+}
+
+section .right-bar .icon-address a p:hover {
+    background: #ff4584;
+}
+
+section .right-bar .location a {
+    text-decoration: none;
+    color: #607d8b;
+}
+
+section .right-bar .icon-address p img {
+    width: 100%;
+    height: 100%;
+    transform: scale(0.5);
+    filter: invert(1);
+}
+
+section .right-bar .location p {
+    padding-top: 20px;
+}
+
+section .right-bar .location a:hover {
+    color: #ff4584;
+}
+
+section .right-bar .icon-social .sci {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section .right-bar .icon-social .sci li {
+    list-style: none;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #607d8b;
+    border-radius: 50%;
+    margin: 0 7px;
+    cursor: pointer;
+}
+
+section .right-bar .icon-social .sci li img {
+    width: 100%;
+    height: 100%;
+    transform: scale(0.5);
+    filter: invert(1);
+}
+
+section .right-bar .icon-social .sci li:hover {
+    background: #ff4584;
+}
+
+@media screen and (max-width: 768px) {
+    section .left-bar {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    section .right-bar .emailBx .icon-email {
+        height: 60px;
+    }
+}

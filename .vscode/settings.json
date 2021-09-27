@@ -1,0 +1,13 @@
+{
+    "cSpell.words": [
+        "csrftoken",
+        "firstname",
+        "forloop",
+        "lastname",
+        "minmax",
+        "MPTT"
+    ],
+    "python.analysis.extraPaths": [
+        "./noiys/django-mptt"
+    ]
+}

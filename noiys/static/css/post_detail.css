@@ -1,0 +1,235 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ffffff;
+    font-family: 'Nunito', sans-serif;
+}
+
+header {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    background: #ff4584;
+    height: 150px;
+    width: inherit;
+    display: grid;
+    grid-template-columns: 3fr 2fr 0.4fr;
+    grid-template-areas: 'logo menu profileIcon';
+}
+
+.logo {
+    grid-area: logo;
+    font-size: 60px;
+    font-weight: bold;
+    color: #fff;
+    width: 350px;
+    padding-left: 20px;
+}
+
+.menu {
+    grid-area: menu;
+    font-size: 25px;
+    padding-top: 30px;
+    padding-left: 20px;
+    text-align: end;
+    font-weight: bold;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    padding-right: 40px;
+    font-size: 25px;
+}
+
+.menu a:hover {
+    color: #333031;
+}
+
+.profileIcon {
+    grid-area: profileIcon;
+    text-align: center;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.profileIcon a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #fff;
+}
+
+.profileIcon a:hover {
+    color: #333031;
+}
+
+.profileIcon a img {
+    border-radius: 50%;
+    border: 2px solid #000;
+    width: 50px;
+    height: 50px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    grid-template-rows: auto;
+    grid-template-areas: 'content-left content-right';
+}
+
+.content-left {
+    grid-area: content-left;
+    min-height: 80vh;
+    padding-bottom: 30px;
+}
+
+.content-left h2 {
+    font-size: 40px;
+    font-weight: bold;
+    padding-left: 50px;
+    padding-top: 30px;
+}
+
+.content-left .post {
+    width: 750px;
+    min-height: 250px;
+    background-color: #ffffff;
+    margin-left: 75px;
+    margin-top: 35px;
+    border-radius: 10px;
+    padding-top: 35px;
+    padding-bottom: 20px;
+}
+
+.content-left .post .post-left {
+    float: left;
+    font-size: 16px;
+    width: 80%;
+    min-height: 150px;
+    padding-left: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    text-overflow: clip;
+}
+
+.content-left .post .post-right {
+    float: left;
+    font-size: 20px;
+    width: 20%;
+    min-height: 150px;
+    box-sizing: border-box;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.content-left .post .post-right {
+    padding-top: 20px;
+}
+
+.content-left .post .post-right span {
+    text-align: center;
+    justify-items: center;
+    padding-top: 25px;
+    padding-left: 15px;
+}
+
+.content-left .post .post-right span a {
+    padding-top: 1px;
+    align-items: center;
+    text-decoration: none;
+    font-size: 20px;
+    color: #4c626d;
+}
+
+.content-left .post .post-right span a:hover {
+    color: #ff4584;
+}
+
+.content-left .post .post-right a img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #ff4584;
+}
+
+.content-right {
+    grid-area: content-right;
+    min-height: 80vh;
+    background-color: #f7f4f4;
+    text-align: center;
+    justify-items: center;
+    float: center;
+}
+
+.content-right img {
+    padding-top: 40%;
+    width: 150px;
+    height: 150px;
+    float: center;
+}
+
+.content-right span p .text {
+    font-size: 18px;
+    float: center;
+}
+
+.content-right span button {
+    width: 150px;
+    height: 50px;
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #f53677;
+    border-radius: 10px;
+    border: 1px solid #000;
+    float: center;
+}
+
+.content-right span button:hover {
+    background-color: #fa9dbc;
+}
+
+.buttonpost {
+    min-height: 100px;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: max(3fr) 1fr 1fr;
+    grid-template-areas: 'text statuspost button';
+}
+
+.button {
+    margin-top: 20px;
+    padding-left: 55%;
+}
+
+.button {
+    background-color: #f53677;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #fa9dbc;
+}
+
+@media screen and (max-width:748px) {
+    .textarea {
+        width: 150px;
+    }
+}
+
+.buttonpost {
+    min-height: 100px;
+    max-width: 100%;
+    display: grid;
+    grid-template-columns: max(3fr) 1fr 1fr;
+    grid-template-areas: 'text statuspost button';
+}

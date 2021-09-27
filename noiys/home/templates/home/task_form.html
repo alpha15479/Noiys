@@ -1,0 +1,136 @@
+<!DOCTYPE html>{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOIYS post - Post, Read, Like</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylepost.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+    <style>
+        .grid {
+            max-width: 100%;
+            display: grid;
+            grid-template-rows: 50px minmax(520px, auto);
+            grid-template-areas: 'header-left' 'main';
+        }
+        
+        .grid form .header-left .topic input {
+            padding: 20px;
+            min-height: 60px;
+        }
+        
+        .grid form .header-left .topic input[type="text"] {
+            height: 50px;
+        }
+        
+        .grid form .main .main-content .buttonpost {
+            min-height: 100px;
+            max-width: 100%;
+        }
+        
+        .grid form .main .main-content .buttonpost .button button:hover {
+            background-color: #f7558b;
+        }
+        
+        @media screen and (max-width: 748px) {
+            header {
+                grid-template-columns: 30% 40% 30%;
+                grid-template-areas: 'logo menu profileIcon';
+                background: #ff4584;
+                width: 100%;
+            }
+            header .logo {
+                grid-area: logo;
+            }
+            header .menu {
+                grid-area: menu;
+            }
+            header .profileIcon {
+                grid-area: profileIcon;
+                background: #ff4584;
+            }
+            .grid .content-left .post {
+                width: 60%;
+                height: 20pc;
+                overflow: auto;
+            }
+            .grid .content-left .post .post-left {
+                height: fit-content;
+            }
+            .grid .content-right {
+                max-height: 70%;
+            }
+            .grid form .main .main-content .buttonpost .text {
+                margin: 0;
+                padding-left: 0;
+                padding-right: 5px;
+            }
+            .grid form .main .main-content .buttonpost .button {
+                margin-bottom: 0;
+                margin-left: 0;
+                margin-right: 0;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1 style="font-size:50px"><strong>NOIYS</strong></h1>
+        </div>
+        <div class="menu">
+            <a href="{% url 'post_list' %}">Home</a>
+            <a href="{% url 'about' %}">About</a> {% if request.user.is_authenticated %}
+            <a href="{% url 'logout' %}">Log out</a> {% else %}
+            <a href="{% url 'login' %}">Log in</a> {% endif %}
+        </div>
+        <div class="profileIcon" style="margin-right: 50px;">
+            <a href="{% url 'tasks' %}">
+                <img src="https://cdn-icons-png.flaticon.com/512/64/64572.png" alt="Img">
+            </a>
+            <br>
+            <h4 style="color: #fff"><strong><a href="{% url 'tasks' %}">Hello {{request.user|title}}</a></strong></h4>
+        </div>
+    </header>
+    <div class="grid">
+        <form method="POST" action="">
+            {% csrf_token %}
+            <div class="header-left content" style="margin-top:2%; margin-bottom:2%;">
+                <div class="topic">
+                    <input type="text" name="title" maxlength="200" required id="id_title" placeholder="Post name..">
+                </div>
+            </div>
+            <div class="main content" align="center">
+                <div class="main-content" align="center">
+                    <div class="bodypost" align="center">
+                        <textarea class="textarea" name="description" cols="40" rows="10" id="id_description" placeholder="Sometimes silence is a really good answer. Typing something on your mind..."></textarea>
+                    </div>
+                    {{ form.complete }} <strong>Complete</strong>
+                    <div class="buttonpost" align="end">
+                        <div class="text">
+                            <h3 style="font-size: 14px;">Post a note anonymously. It's viewed by many, then deleted. Try not to be a dick.</h3>
+                        </div>
+                        <div class="button">
+                            <button type="submit">Post now!!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
+
+<!--<div class="card-body">
+    <h1>Post form</h1>
+    <form method="POST" action="">
+        {{ form.as_p }}
+        <input class="button" type="submit" value="Submit">
+    </form>
+</div>-->

@@ -1,0 +1,128 @@
+<!DOCTYPE html>{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOIYS - Post, Read, Like</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/stylehome.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1 style="font-size:50px"><strong>NOIYS</strong></h1>
+        </div>
+        <div class="menu">
+            <a href="{% url 'post_list' %}">Home</a>
+            <a href="{% url 'about' %}">About</a> {% if request.user.is_authenticated %}
+            <a href="{% url 'logout' %}">Logout</a> {% else %}
+            <a href="{% url 'login' %}">Log in</a> {% endif %}
+        </div>
+        <div class="profileIcon" style="margin-right: 50px;">
+            <a href="{% url 'tasks' %}">
+                <img src="https://cdn-icons-png.flaticon.com/128/149/149071.png" alt="Img">
+            </a>
+            <br>
+            <h4 style="color: #fff"><strong><a href="{% url 'tasks' %}">Hello {{request.user|title}}</a></strong></h4>
+        </div>
+
+        <style>
+            .content-left {
+                height: 80vh;
+                overflow: auto;
+            }
+            
+            .content-right {
+                height: 80vh;
+            }
+            
+            @media screen and (max-width: 768px) {
+                header {
+                    grid-template-columns: 30% 40% 30%;
+                    grid-template-areas: 'logo menu profileIcon';
+                    background: #ff4584;
+                    width: 100%;
+                }
+                header .logo {
+                    grid-area: logo;
+                }
+                header .menu {
+                    grid-area: menu;
+                }
+                header .profileIcon {
+                    grid-area: profileIcon;
+                    background: #ff4584;
+                }
+                .grid .content-left .post {
+                    width: 60%;
+                    height: 20pc;
+                    overflow: auto;
+                }
+                .grid .content-left .post .post-left {
+                    height: fit-content;
+                }
+                .grid .content-right {
+                    max-height: 70%;
+                }
+            }
+        </style>
+    </header>
+
+    <div class="grid">
+        <div class="content-left">
+            <!--
+            <div id="search-add-wrapper">
+                <form method="GET" style="margin-top:20px; display:flex;">
+                    <input type="text" name="search-area" value="{{ search_input }}" placeholder="Search Post">
+                    <input style="margin-left:10px;" class="button" type="submit" value="Search">
+                </form>
+            </div>-->
+            <h2>Recent post</h2>
+            <hr> {% for post in qs %}
+            <div class="post">
+                <div class="post-left">
+                    <li><a href="{% url 'post-detail' post.pk %}"><strong style="font-size: 16px;">{{post.title}}</strong></a></li>
+
+                    <p style="font-size: 16px;">{{post.description|truncatechars:120}}&nbsp&nbsp
+                        <a href="{% url 'post-detail' post.pk %}"><strong>Read more</strong></a></p>
+                    <p style="font-size: 14px;"><strong>{{post.user}}</strong></p>
+                    <p style="font-size: 14px;"><strong>{{post.created_at}}</strong></p>
+                    <hr>
+                </div>
+                <div class="post-right">
+                    <span>
+                        <a href="{% url 'post-detail' post.pk %}"><strong>Comment</strong></a>
+                    </span> <br>
+                    <span>
+                        <a href="#">Follow</a>
+                    </span>
+                    <span>
+                        <a href="#">
+                            <img src="https://cdn-icons-png.flaticon.com/128/149/149071.png" alt="iconUser">
+                        </a>
+                    </span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="content-right">
+            <span>
+                <img src="https://image.flaticon.com/icons/png/512/2567/2567208.png" alt="icon">
+            </span>
+            <span>
+                <p style="font-size: 18px;">Create your topic or article</p>
+            </span>
+            <span>
+                <a id="add-link" href="{% url 'task-create' %}">
+                   <button>Create Post</button> 
+                </a>
+            </span>
+        </div>
+    </div>
+</body>
+
+</html>
