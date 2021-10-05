@@ -12,7 +12,7 @@ header {
     position: relative;
     margin: 0;
     padding: 0;
-    background: #ff4584;
+    background: #e31d52;
     height: 150px;
     width: inherit;
     display: grid;
@@ -109,7 +109,7 @@ header {
     float: left;
     font-size: 16px;
     width: 80%;
-    min-height: 150px;
+    min-height: 120px;
     padding-left: 20px;
     padding-right: 20px;
     box-sizing: border-box;
@@ -159,7 +159,7 @@ header {
 .content-right {
     grid-area: content-right;
     min-height: 80vh;
-    background-color: #f7f4f4;
+    background-color: #d1cece;
     text-align: center;
     justify-items: center;
 }
@@ -170,7 +170,7 @@ header {
     height: 150px;
 }
 
-.content-righ span p .text {
+.content-right span p .text {
     font-size: 18px;
 }
 

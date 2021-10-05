@@ -5,9 +5,12 @@
         "forloop",
         "lastname",
         "minmax",
-        "MPTT"
+        "MPTT",
+        "rght",
+        "socialaccount"
     ],
     "python.analysis.extraPaths": [
         "./noiys/django-mptt"
-    ]
+    ],
+    "maven.view": "flat"
 }

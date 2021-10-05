@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOIYS details - Post, Read, Like</title>
+    <title>N&#9825;IYS details - Post, Read, Like</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/post_detail.css' %}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -18,10 +18,20 @@
         
         .content-right {
             height: 80vh;
+            background-color: #F2F2F2;
         }
         
         .grid .content-right .col-md-12 form .bodypost input:hover {
             background-color: #fa9dbc;
+        }
+        
+        .btn {
+            background-color: #f53677;
+            border: 1px solid #000;
+            border-radius: 5px;
+            width: 75px;
+            height: 40px;
+            font-weight: bold;
         }
         
         @media screen and (max-width: 748px) {
@@ -57,7 +67,9 @@
 <body>
     <header>
         <div class="logo">
-            <h1 style="font-size:50px"><strong>NOIYS</strong></h1>
+            <a href="{% url 'post_list' %}">
+                <h1 style="font-size:50px; color:#fff; text-decoration:none;"><strong>NOIYS</strong></h1>
+            </a>
         </div>
         <div class="menu">
             <a href="{% url 'post_list' %}">Home</a>
@@ -67,7 +79,7 @@
         </div>
         <div class="profileIcon" style="margin-right: 50px;">
             <a href="{% url 'tasks' %}">
-                <img src="https://cdn-icons-png.flaticon.com/128/149/149071.png" alt="Img">
+                <img src="https://cdn-icons-png.flaticon.com/512/64/64572.png" alt="Img">
             </a>
             <br>
             <h4 style="color: #fff"><strong><a href="{% url 'tasks' %}">Hello {{request.user|title}}</a></strong></h4>
@@ -96,7 +108,7 @@
                     {{ total_comments }} comment{{ total_comments|pluralize}}
                 </strong></h3><br> {% endwith %} {% if not task.comments.all %} No comments yet...<a href="#"><strong>Add one</strong></a> {% else %} {% for comment in task.comments.all %}
                 <h5><strong>{{ comment.content }}</strong></h5>
-                <h6 style="text-align:left"><strong>{{ comment.name }} - {{ comment.publish }} </strong></h6><br> {% endfor %} {% endif %}
+                <h6 style="text-align:left">Comment by : {{ comment.name }} - {{ comment.publish }}</h6><br> {% endfor %} {% endif %}
             </div>
         </div>
         <div class="content-right">
@@ -112,14 +124,13 @@
                         box-shadow: 1px 1px 1px #999;
                         letter-spacing: 1px;"></textarea>
                     </div><br>
-                    <input type="submit" value="Submit" class="btn btn-primary" style="background-color:#f53677; border-radius: 20px; width:100px;
-                    "> {% else %}<strong><a href="{% url 'login' %}">Login to comment</a></strong>{% endif %}
+                    <input type="submit" value="Submit" class="btn btn-primary "> {% else %}<strong><a href="{% url 'login' %} ">Login to comment</a></strong>{% endif %}
                 </form>
             </div>
         </div>
     </div>
     <script>
-        $('#myForm').trigger("reset");
+        $('#myForm').trigger("reset ");
     </script>
 </body>
 

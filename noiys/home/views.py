@@ -68,7 +68,7 @@ def LikeView(request, id):
     
 class CustomLoginView(LoginView):
     template_name = 'home/login.html'
-    fields = '__all__'
+    fields = '_all_'
     redirect_authenticated_user = True
 
     def get_success_url(self):
@@ -85,7 +85,7 @@ class RegisterPage(FormView):
     def form_valid(self, form):
         user = form.save()
         if user is not None:
-            login(self.request, user)
+            login(self.request, user, backend='django.contrib.auth.backends.ModelBackend')
         return super(RegisterPage, self).form_valid(form)
 
     def get(self, *args, **kwargs):
@@ -93,7 +93,7 @@ class RegisterPage(FormView):
             return redirect('tasks')
         return super(RegisterPage, self).get(*args, **kwargs)
 
-
+ 
 class TaskList(LoginRequiredMixin, ListView):
     model = Task
     context_object_name = 'tasks'
@@ -116,12 +116,12 @@ class TaskDetail(LoginRequiredMixin, DetailView):
     model = Task
     context_object_name = 'task'
     template_name = 'home/task.html'
-
+ 
 
 class TaskCreate(LoginRequiredMixin, CreateView):
     model = Task
     fields = ['title', 'description', 'complete']
-    success_url = reverse_lazy('tasks')
+    success_url = reverse_lazy('post_list')
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -156,29 +156,11 @@ class TaskReorder(View):
         return redirect(reverse_lazy('tasks'))
 
 
-def home(request):
-    return render(request, 'home/home.html')
-
 def postdetail(request):
     return render(request, 'home/postdetail.html')
-
-def post(request):
-    return render(request, 'home/post.html')
 
 def signup(request):
     return render(request, 'home/signup.html')
 
-def test(request):
-    return render(request, 'home/test.html')
-
-def profile(request):
-    return render(request, 'home/profile.html')
-
-def detail(request):
-    return render(request, 'home/detail.html')
-
 def about(request):
     return render(request, 'home/about.html')
-
- 
- 

@@ -1,9 +1,10 @@
+from datetime import datetime
 from django.contrib import *
-from django import forms
 from django.db import models
 from django.contrib.auth.models import *
-from django.urls.base import reverse, reverse_lazy
+from django.urls.base import reverse
 from mptt.models import MPTTModel, TreeForeignKey
+from django.dispatch import receiver
 
 
 class Task(models.Model):
@@ -20,7 +21,7 @@ class Task(models.Model):
         return self.likes.count()
 
     def __str__(self):
-        return self.title
+     return self.title
 
     class Meta: 
         ordering = ['complete']
@@ -30,7 +31,6 @@ class Task(models.Model):
 
 
 class Comment(MPTTModel):
-
     task = models.ForeignKey(Task,
                              on_delete=models.CASCADE,
                              related_name='comments')
@@ -40,9 +40,9 @@ class Comment(MPTTModel):
     publish = models.DateTimeField(auto_now_add=True)
     status = models.BooleanField(default=True)
 
-    class MPTTMeta:
+    class Meta:
         ordering = ('publish',)
 
     def __str__(self):
-        return f'Comment by {self.name}'
+        return self.name
 

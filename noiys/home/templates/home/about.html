@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOIYS team - Post, Read, Like</title>
+    <title>N&#9825;IYS team - Post, Read, Like</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -14,7 +14,9 @@
 <body>
     <header>
         <div class="logo">
-            <h1 style="font-size:50px"><strong>NOIYS</strong></h1>
+            <a href="{% url 'post_list' %}">
+                <h1 style="font-size:50px; color:#fff; text-decoration:none;"><strong>NOIYS</strong></h1>
+            </a>
         </div>
         <div class="menu">
             <a href="{% url 'post_list' %}">Home</a>
@@ -24,7 +26,7 @@
         </div>
         <div class="profileIcon" style="margin-right: 50px;">
             <a href="{% url 'tasks' %}">
-                <img src="https://cdn-icons-png.flaticon.com/128/149/149071.png" alt="Img">
+                <img src="https://cdn-icons-png.flaticon.com/512/64/64572.png" alt="Img">
             </a>
             <br>
             <h4 style="color: #fff"><strong><a href="{% url 'tasks' %}">Hello {{request.user|title}}</a></strong></h4>
@@ -79,26 +81,18 @@
                             <img src="https://cdn-icons-png.flaticon.com/512/482/482138.png" alt="">
                         </p>
                     </div>
-                    <div class="mail">
-                        <span>wichuda.ph.62@ubu.ac.th</span><br>
-                        <span>bancha.pa.62@ubu.ac.th</span><br>
-                        <span>nipapan.ja.62@ubu.ac.th</span><br>
-                        <span>surasak.na.62@ubu.ac.th</span><br>
-                        <span>sirinya.ba.62@ubu.ac.th</span>
-                    </div>
-                </div>
-                <div class="addressBx">
-                    <div class="icon-address">
-                        <a href="https://goo.gl/maps/oWVd4ZrkCi7xCKNy8">
-                            <p>
-                                <img src="https://img-premium.flaticon.com/png/512/819/premium/819865.png?token=exp=1632218467~hmac=dcb35b7c2a7576bcf4ec4e91c5322cf6" alt="">
-                            </p>
-                        </a>
-                    </div>
-                    <div class="location">
-                        <a href="https://img-premium.flaticon.com/png/512/819/premium/819865.png?token=exp=1632582523~hmac=1944c56c98e7513003721203e84fd8fc">
+                    <div class="mail col-md-12">
+                        <div class="col-md-6">
+                            <span>wichuda.ph.62@ubu.ac.th</span><br>
+                            <span>bancha.pa.62@ubu.ac.th</span><br>
+                            <span>nipapan.ja.62@ubu.ac.th</span><br>
+                            <span>surasak.na.62@ubu.ac.th</span><br>
+                            <span>sirinya.ba.62@ubu.ac.th</span>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="https://upload.wikimedia.org/wikipedia/th/thumb/2/29/Logoubu.gif/160px-Logoubu.gif">
                             <p>Ubon Ratchathani University</p>
-                        </a>
+                        </div>
                     </div>
                 </div>
                 <div class="icon-social">
